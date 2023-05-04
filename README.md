@@ -2,9 +2,9 @@
 
 提案（[RFC](https://zh.wikipedia.org/wiki/RFC)，征求意见稿）是 deepin 社区贡献者在一个集中的环境中提出、设计和讨论项目方向的新特性和变化的一种方式。
 
-提案的发起应当通过在此处创建 Pull Request 的方式进行：<链接>
+提案的发起应当通过在此处创建 Pull Request 的方式进行：<https://github.com/deepin-community/rfcs/pulls>
 
-当提案被接纳并通过后，提案将被收入备忘录，可在此处查阅：<链接>
+当提案被接纳并通过后，提案将被收入备忘录，可在此处查阅：<https://github.com/deepin-community/rfcs/tree/master/rfcs>
 
 ## 提案的作用是什么？
 
