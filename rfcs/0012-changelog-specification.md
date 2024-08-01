@@ -20,14 +20,14 @@
 
 #### 1. 假设上游项目打包版本号为 x.y.z ，deepin打包版本则为 `x.y.z-${ver1}deepin${ver2}` 
  ver1：ver1为0时表示 deepin自行打包的上游软件，ver1不为0时表示来自上游的quilt软件包自带的-ver版本
- ver2：表示来自deepin社区的patch数量，依次递增，可为空
+ ver2：表示来自deepin社区的patch数量，依次递增，不可为空从0开始计算
 
 #### 2. 来自deepin community自行打包的上游软件 以0deepin开头标识，若该项目添加了来自deepin的patch则以deepin1 标识，依次累加, 版本号形式x.y.z-0deepin1 , 若上游已经添加-2这类版本号，版本号则为 x.y.z-2deepin1
 
 #### 3. 集成native软件包
 将native软件包直接改成quilt格式存在一些changelog版本格式不兼容问题
-因此重新修订native版本规范，形式为 `upstreamversiondeepin${ver2}`
-native软件包没有-的连字符，因此直接在上游版本号后deepin${ver2} 标记来自deepin的修改
+因此重新修订native版本规范，形式为 `upstreamversion+deepin${ver2}`
+native软件包没有-的连字符，因此直接在上游版本号后添加+deepin${ver2} 标记来自deepin的修改
 
 #### 4.  CI自动构建版本号 `x.y.z-${ver1}deepin${ver2}+u001+rb1`，001为距离上一次修改changelog的commit次数，rb1为rebuild次数，依次累加
 > [!WARNING]
@@ -61,9 +61,11 @@ native软件包没有-的连字符，因此直接在上游版本号后deepin${ve
 
 #### 6. 安全更新版本规范：
 
-对于相同版本软件包需要在两个以上的版本中做安全更新(例如 v23 and v26)时，为确保版本号正确，必须大于当前软包版本且小于后续发行版中的软件包版本，请示在版本号后缀中添加+deb${version}u${num}形式
-对于v23版本 `upstreamversion-${ver1}deepin${ver2}+deb23u1` 对于v26版本 `upstreamversion-${ver1}deepin${ver2}+deb26u1` ，对于后续的更新，$num值都应当累加，由于版本号形式较多建议使用 `dpkg --compare-versions` 验证版本号是否符合要求。
+对于相同版本软件包需要在两个以上的版本中做安全更新(例如 v23 and v26)时，为确保版本号正确，必须大于当前软包版本且小于后续发行版中的软件包版本，请示在版本号后缀中添加+dp${version}u${num}形式
+对于v23版本 `upstreamversion-${ver1}deepin${ver2}+dp23u1` 对于v26版本 `upstreamversion-${ver1}deepin${ver2}+dp26u1` ，对于后续的更新，$num值都应当累加，由于版本号形式较多建议使用 `dpkg --compare-versions` 验证版本号是否符合要求。
 对于非上述情况时应当遵循上文的版本号规范提交。
+> [!TIP]
+> 注： dp为deepin的缩写
 
 > [!TIP]
 > 注： 历史遗留的版本号不在本次讨论范围内，新的提交的软件包构建集成等应遵循新版本规范
