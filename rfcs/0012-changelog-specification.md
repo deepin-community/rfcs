@@ -45,10 +45,10 @@ native软件包没有-的连字符，因此直接在上游版本号后添加+dee
   
 ##### native软件包rebuild规范：
 
-情况1：ver2不为空时直接+rb{ver}后缀，表现形式为`x.y.zdeepin1+rb1`
+情况1：ver2不为空时直接+rb{ver}后缀，表现形式为`x.y.z+deepin1+rb1`
 
 情况1：ver2为空时的rebuild版本ver2默认为0，表现形式为
-  `x.y.zdeepin0+rb1`
+  `x.y.z+deepin0+rb1`
 
 > [!WARNING]
 > 注：rebuild版本号使用仅限于依赖包升级，相关依赖树需要基于新版本构建编译的场景使用
