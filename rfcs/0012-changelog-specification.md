@@ -20,7 +20,7 @@
 
 #### 1. 假设上游项目打包版本号为 x.y.z ，deepin打包版本则为 `x.y.z-${ver1}deepin${ver2}` 
  ver1：ver1为0时表示 deepin自行打包的上游软件，ver1不为0时表示来自上游的quilt软件包自带的-ver版本
- ver2：表示来自deepin社区的patch数量，依次递增，不可为空从0开始计算
+ ver2：表示来自deepin社区的修改，依次递增，不可为空从0开始计算
 
 #### 2. 来自deepin community自行打包的上游软件 以0deepin开头标识，若该项目添加了来自deepin的patch则以deepin1 标识，依次累加, 版本号形式x.y.z-0deepin1 , 若上游已经添加-2这类版本号，版本号则为 x.y.z-2deepin1
 
