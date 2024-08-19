@@ -13,7 +13,6 @@
 
 ## 详细设计
 
-
 **changelog版本规范**
 
 `upstreamversion-${ver1}deepin${ver2}`
