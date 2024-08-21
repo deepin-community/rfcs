@@ -76,5 +76,9 @@ native软件包没有-的连字符，因此直接在上游版本号后添加+dee
  - ${ver1} 来自deepin的上游的版本
  - ${ver2} 来自deepin的patch版本,这块必须，且从0开始 如无任何修改则不需要加该字
  - [+dp26u${num}] 安全补丁版本，这块只有在多版本发布安全补丁时需要
- - [+u${ver3}] CI编译版本，这快只有CI编译时有
+ - [+u${ver3}] CI编译版本，只有CI开发环境编译时有
  - [+rb${ver4}] rebuild次数，这块只有rebuild时才添加
+ - 主线 GitHub 版本为 `upstreamversion-${ver1}deepin${ver2}`
+ - 主线仓库会有 [+rb]，不在GitHub，在OBS生成；
+ - 安全更新在 GitHub，非主线，有 [+dp26u${num}]；
+ - [+u${ver3}] 为开发版本，在GitHub内不出现，在仓库内不出现，但是出现在 CI 中
