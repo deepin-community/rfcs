@@ -59,7 +59,7 @@ native软件包没有-的连字符，因此直接在上游版本号后添加+dee
 #### 6. 安全更新版本规范：
 
 - 对于相同版本软件包需要在两个以上的版本中做安全更新(例如 v23 and v26)时，为确保版本号正确，必须大于当前软包版本且小于后续发行版中的软件包版本，请示在版本号后缀中添加+dp${version}u${num}形式
-- 对于v23版本 `upstreamversion-${ver1}deepin${ver2}+dp23u1` 对于v26版本 `upstreamversion-${ver1}deepin${ver2}+dp26u1` ，对于首次更新${ver2}值应当增加假设ver2指为1 更新后应该为1.1此举是为了区别于主线版版本好， 对于后续的更新，$num值都应当累加，由于版本号形式较多建议使用 `dpkg --compare-versions` 验证版本号是否符合要求。
+- 对于v23版本 `upstreamversion-${ver1}deepin${ver2}+dp23u1` 对于v26版本 `upstreamversion-${ver1}deepin${ver2}+dp26u1` ，对于首次更新${ver2}值应当增加假设{ver2}为1 更新后应该为1.1此举是为了区别于主线版本号避免影响主线上的rebuild版本机制，对于主线的安全更新版本{ver2}加1即可， 对于后续的更新，$num值都应当累加，由于版本号形式较多建议使用 `dpkg --compare-versions` 验证版本号是否符合要求。
 - 参考的形式 原版本 `upstreamversion-1deepin1` 安全更新版本 `upstreamversion-1deepin1.1+dp23u1` 
 - 对于非上述情况时应当遵循上文的版本号规范提交。
 > [!TIP]
