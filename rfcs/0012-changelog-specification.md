@@ -27,8 +27,8 @@
 #### 3. 集成 native 软件包
 
 将 native 软件包直接改成 quilt 格式存在一些 changelog 版本格式不兼容问题
-因此重新修订 native 版本规范，形式为 `upstreamversion+deepin${ver2}`
-native 软件包没有-的连字符，因此直接在上游版本号后添加+deepin${ver2} 标记来自 deepin 的修改
+因此重新修订 native 版本规范，形式为 `${upstreamversion}deepin${ver2}`
+native 软件包没有-的连字符，因此直接在上游版本号后添加 `deepin${ver2}` 标记来自 deepin 的修改
 
 #### 4. CI 自动构建版本号 `x.y.z-${ver1}deepin${ver2}+u001+rb1`，001 为距离上一次修改 changelog 的 commit 次数，rb1 为 rebuild 次数，依次累加
 
@@ -48,10 +48,10 @@ native 软件包没有-的连字符，因此直接在上游版本号后添加+de
 
 ##### native 软件包 rebuild 规范：
 
-情况 1：ver2 不为空时直接+rb{ver}后缀，表现形式为`x.y.z+deepin1+rb1`
+情况 1：ver2 不为空时直接+rb{ver}后缀，表现形式为`x.y.zdeepin1+rb1`
 
 情况 1：ver2 为空时的 rebuild 版本 ver2 默认为 0，表现形式为
-`x.y.z+deepin0+rb1`
+`x.y.zdeepin0+rb1`
 
 > [!WARNING]
 > 注：rebuild 版本号使用仅限于依赖包升级，相关依赖树需要基于新版本构建编译的场景使用
@@ -145,3 +145,7 @@ native 软件包没有-的连字符，因此直接在上游版本号后添加+de
 - 主线仓库会有 [+rb]，不在 GitHub，在 OBS 生成；
 - 安全更新在 GitHub，非主线，有 [+dp26u${num}]；
 - [+u${ver3}] 为开发版本，在 GitHub 内不出现，在仓库内不出现，但是出现在 CI 中
+
+## 变更记录
+
+2025-07-08: 在 native 软件包场景下，取消了 `${upstreamversion}` 与 `deepin${ver2}` 之间的 `+` 号 (https://github.com/deepin-community/rfcs/pull/16)
